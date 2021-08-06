@@ -1,0 +1,21 @@
+#installing pip dependencies
+from web3 import Web3
+from web3.middleware import geth_poa_middleware
+from eth_account import Account
+import subprocess
+import json
+from eth_account import Account
+
+
+#cloning and installing hd-wallet-derive
+
+# Open bash as administrator
+# cd into your Blockchain-Tools folder and run the following code:
+
+git clone https://github.com/dan-da/hd-wallet-derive
+cd hd-wallet-derive
+curl https://getcomposer.org/installer -o installer.php
+php installer.php
+php composer.phar install
+
+
