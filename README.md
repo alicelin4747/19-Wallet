@@ -5,14 +5,9 @@
 
 `send_tx('btc-test', account_btctest, 'mxwSU31v1NtbUi6Pc5bN9BgmmAGw13JdvX', 0.0005)`
 
-![alt text](image.jpg)
+![alt text](sender.jpg)
 
-### ETH
-`create_tx('eth', account_eth, 'recipient', amount)`
-
-`send_tx('eth', account_eth, 'recipient', amount)`
-
-![alt text](image.jpg)
+![alt text](recipient.jpg)
 
 ## What does the wallet do
 1. `drive_wallets` function - use hd-wallet-derive to generate wallets for BTC-Testnet and ETH

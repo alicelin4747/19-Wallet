@@ -9,6 +9,7 @@ from bit import PrivateKeyTestnet
 pp = pprint.PrettyPrinter(indent=2)
 
 from eth_account import Account
+from bit.network import NetworkAPI
 
 # Load and set environment variables
 load_dotenv("/Users/FinTech/PycharmProjects/Bootcamp/HW/19-Wallet/mnemonic_keys.env")
@@ -53,8 +54,8 @@ def priv_key_to_account(coin, private_key):
         account_btctest = PrivateKeyTestnet(private_key)
         return account_btctest
 
-account = priv_key_to_account('btc-test', "cVAgDoahzo5Ucdv8ioxxubvmE6LfU3ZQgJ21UvY4eC1xi6WkvnXe")
-print(account.address)
+#account = priv_key_to_account('btc-test', "cVAgDoahzo5Ucdv8ioxxubvmE6LfU3ZQgJ21UvY4eC1xi6WkvnXe")
+#print(account.address)
 
 # Create a function called `create_tx` that creates an unsigned transaction appropriate metadata.
 def create_tx(coin, account, recipient, amount):
@@ -70,8 +71,8 @@ def create_tx(coin, account, recipient, amount):
             "gas": gasEstimate,
             "nonce": w3.eth.getTransactionCount(account.address),
         }
-    if coin == 'btc_test':
-        return PrivateKeyTestnet.prepare_transaction(account.address, [(recipient, amount, coin)])
+    if coin == 'btc-test':
+        return PrivateKeyTestnet.prepare_transaction(account.address, [(recipient, amount, 'btc')])
 
 # Create a function called `send_tx` that calls `create_tx`, signs and sends the transaction.
 def send_tx(coin, account, recipient, amount):
@@ -81,7 +82,7 @@ def send_tx(coin, account, recipient, amount):
         result = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
         print(result.hex())
         return result.hex()
-    if coin == 'btc_test':
+    if coin == 'btc-test':
         tx = create_tx(coin, account, recipient, amount)
         signed_tx = account.sign_transaction(tx)
         return NetworkAPI.broadcast_tx_testnet(signed_tx)
