@@ -1,9 +1,8 @@
 # 19-Wallet
 ## Transation Screenshot
 ### BTC-Test
-`create_tx('btc-test', account_btctest, 'mxwSU31v1NtbUi6Pc5bN9BgmmAGw13JdvX', 0.0005)`
 
-`send_tx('btc-test', account_btctest, 'mxwSU31v1NtbUi6Pc5bN9BgmmAGw13JdvX', 0.0005)`
+`send_tx('btc-test', account_btctest, 'mxwSU31v1NtbUi6Pc5bN9BgmmAGw13JdvX', 0.000005)`
 
 ![alt text](sender.jpg)
 
@@ -16,4 +15,4 @@
 4. `create_tx` function - create unsigned transaction
 5. `send_tx` function - signs and sends the transaction
 
-Library needed for the wallet include bit, eth_accont, web3, subprocess, json.  
+Library needed for the wallet include bit, eth_accont, web3, subprocess, json, and NetworkAPI.  
